@@ -1,0 +1,27 @@
+#Python Scraping
+
+
+#必要なパッケージのDL
+sudo apt-get install -y python3.4-venv
+#仮想環境の作成（下はactivateがないとき）
+python3 -m venv scraping
+python3 -m venv --without-pip scraping
+#確認
+ls scraping
+#仮想環境に入る
+. scraping/bin/activate
+#バージョンの確認
+python -V
+#ディレクトリの確認
+which python
+#パッケージの確認
+pip freeze
+#pipがない場合（ダウンロード）
+$ curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python3
+#仮想環境から抜ける
+deactivate
+
+
+#urllibによるWebページ取得
+#パッケージの導入（バージョン指定が必要）
+sudo pip3 install urllib3

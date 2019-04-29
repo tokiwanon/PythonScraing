@@ -1,0 +1,50 @@
+#VirtualBox + Vagrant によるUbuntu仮想マシンの立ち上げ
+#python scrapingより
+
+
+#Ubuntu 64bitを仮想環境に導入
+vagrant box add ubuntu/trusty64
+#Vagrantfileの作成
+vagrant init ubuntu/trusty64
+
+#Vagrantfileの設定を変更
+#Vagrant.configure("2") do |config|に以下を追加
+  #ホストOSのTCPポート8000番をゲストOSのTCPポート8000番にフォワードする
+  #これによって、ゲストOSのサーバーに http:/localhost:8000/ でAccessできるようにする
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+
+  #割当メモリが少ないとC拡張モジュールのコンパイルに失敗する場合があるので、最低1GB程度割り当てる
+  config.vm.provider :virtualbox do |vb|
+    vb.memory = 1024
+  end
+
+#仮想マシンの作成と起動
+vagrant up
+#SSH接続情報の取得接続
+vagrant ssh-config
+#SSH接続情報の接続
+vagrant ssh
+
+#PuTTyでログイン後、Vagrantfileを確認
+ls /vagrant/
+
+
+#vagrantコマンド
+#仮想マシンの起動
+vagrant up
+#仮想マシンの中断・再起動
+vagrant halt
+vagrant reload
+#仮想マシンの削除
+vagrant destroy
+#仮想マシンのステータス確認
+vagrant status
+#SSH接続
+vagrant ssh
+#仮想マシンのエクスポート
+vagrant package
+#エクスポートした仮想マシンの読み込み
+vagrant box add --name 
+
+
+# python

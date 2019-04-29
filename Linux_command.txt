@@ -1,0 +1,44 @@
+#確認
+pwd
+#移動
+cd /vagrant/
+#一覧
+ls
+#一覧の詳細
+ls -l
+#隠しディレクトリなど含む一覧
+ls -al
+
+#フォルダの作成
+mkdir temp
+#コマンドを記入したテキストファイルの作成
+echo 'Hello' > temp/greeting.txt
+#ファイルのコピー
+cp temp/greeting.txt temp/greeting2.txt
+#ファイルの移動（名前の変更）
+mv temp/greeting.txt temp/greeting1.txt
+#ファイルの実行（中身の表示）
+cat temp/greeting1.txt
+#ファイルの削除
+rm temp/greeting1.txt
+#フォルダの削除
+rm -r temp/
+
+#ファイルを直接閲覧
+less Vagrantfile
+
+#ファイルを直接操作
+vi Vagrantfile 
+nano Vagrantfile
+
+#vimの使い方
+#https://qiita.com/okamos/items/c97970ab34ff55ff3167
+#nanoの使い方
+#http://dotnsf.blog.jp/archives/1066662653.html
+
+#リポジトリで公開されているパッケージ情報更新する
+sudo apt-get update
+#jpパッケージをインストールする
+sudo apt-get install -y ja
+#apt-cache searchコマンドでパッケージを検索できる
+apt-cache search python3
